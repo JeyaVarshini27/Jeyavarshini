@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="Utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Document</title>
+    <style>
+        .body {
+            margin: 0px;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
+        .d3 {
+            border: 2px none black;
+            height: 650px;
+
+            background-color: rgb(55, 81, 125);
+        }
+
+        .d4 {
+            border: 2px none black;
+            height: 50px;
+            /* width: 300px; */
+            float: left;
+
+        }
+
+        .d5 {
+            border: 2px none black;
+            height: 70px;
+            /* width: 300px; */
+
+            float: left;
+        }
+
+        @keyframes floatAnimation {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .floating-image {
+            animation: floatAnimation 3s infinite;
+        }
+
+        .images {
+            background-image: url('./images/pr6.jpg');
+            background-size: 100% 100%;
+            height: 400px;
+            width: 400px;
+        }
+
+        /* .project-section {
+            margin-top: 10px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        } */
+
+        .move-up:hover {
+
+            transition: all .5s;
+            transform: translateY(-10px);
+        }
+
+        .i1 {
+            height: 400px;
+            width: 1350px;
+            background-image: linear-gradient(to top, rgba(0, 2, 5, 0.37), rgba(0, 0, 0, 0.979)), url(./images/i11.jpg);
+            background-size: 100% 100%;
+            border: 1px solid black;
+            margin-left: -50px;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            /* Adjust transparency as needed */
+            overflow: hidden;
+            height: 0;
+            transition: .5s ease;
+        }
+
+        .image-wrapper:hover .overlay {
+            height: 30%;
+            /* Adjust overlay height on hover */
+        }
+
+        .overlay-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            /* Adjust padding as needed */
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            /* Adjust max-width as needed */
+            margin: 0 auto;
+            /* Center the container */
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            /* Adjust gap between columns */
+        }
+
+        .col {
+            flex: 1 0 300px;
+            /* Each column takes 1/3 of the row width */
+        }
+
+        .left {
+            border: 2px solid black;
+            height: 150px;
+            width: 100px;
+            float: left;
+        }
+
+        .right {
+            border: 2px solid black;
+            height: 150px;
+            width: 200px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
+    <nav class="navbar navbar-expand-sm  navbar-dark fixed-top mb-0"
+        style="height:100px;background-color:rgb(55, 81, 125);">
+        <div class="container-fluid ">
+            <h4 style="color:white;font-size:30px;">ARSHA</h4>
+            <ul class="navbar-nav ms-4">
+                <li class="nav-item">
+                    <a class="nav-link" href="#section1" style="color:white;font-size:20px;">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section2" style="color:white;font-size:18px;margin-left:5px;">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3"
+                        style="color:white;font-size:18px;margin-left:5px;">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3"
+                        style="color:white;font-size:18px;margin-left:5px;">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3"
+                        style="color:white;font-size:18px;margin-left:5px;">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3" style="color:white;font-size:18px;margin-left:5px;">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#section3 "
+                        style="color:white;font-size:18px;margin-left:5px;">Pricing</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        style="color:white;font-size:18px;margin-left:5px;">Dropdown</a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#" style="font-size:16px;">Dropdown 1</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="test" tabindex="-1" href="#" style="font-size:16px;">Deep Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" style="font-size:16px;">
+                                <li><a tabindex="-1" href="#">Deep dropdown 1</a></li>
+                                <li><a tabindex="-1" href="#">Deep dropdown 2</a></li>
+                                <li><a tabindex="-1" href="#">Deep dropdown 3</a></li>
+                                <li><a tabindex="-1" href="#">Deep dropdown 4</a></li>
+                                <li><a tabindex="-1" href="#">Deep dropdown 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a tabindex="-1" href="#" style="font-size:16px;">Dropdown 2</a></li>
+                        <li><a tabindex="-1" href="#" style="font-size:16px;">Dropdown 3</a></li>
+                        <li><a tabindex="-1" href="#" style="font-size:16px;">Dropdown 4</a></li>
+                        <li><a tabindex="-1" href="#" style="font-size:16px;">Dropdown 5</a></li>
+                    </ul>
+                </li>
+                <button type="button" class="btn btn-info"
+                    style="width:170px; border-radius:60px;margin-left:10px;font-size:18px;">Get started</button>
+    </nav>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-submenu a.test').on("click", function (e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+    <div class="d3">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-6">
+                    <h1 style="color:white;margin-top:170px;font-family:Jost;font-size:50px;">
+                        <b>Better
+                            Solutions For </b>
+                    </h1>
+                    <h1 style="color:white;font-family:Jost;font-size:50px;"><b>Your Business</b>
+                    </h1>
+                    <h3 style="color:white;font-family:open-sans;font-size:30px">We are team of
+                        talented
+                        designers making websites with Bootstrap</h3>
+                    <div class="d4">
+                        <button type="button" class="btn btn-info"
+                            style="width:170px; border-radius:60px;font-size:18px;">Get
+                            started</button>
+                    </div>
+                    <div class="d5">
+                        <i class="fa fa-play-circle-o"
+                            style="font-size:40px;color:white;margin-top:0px;padding-left: 20px;">
+                            <h2 style="float:right;;margin-top:5px;font-size:24px;">Watch Video</h2>
+                        </i>
+                    </div>
+
+                </div>
+                <div class="col-5">
+                    <img src="./images/hero-img.png" alt="Floating Image" class="img-fluid floating-image"
+                        style="height:400px;width:500px;margin-top:100px;">
+
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div>
+
+    <div class="col">
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="8"></button>
+            </div>
+            <div id="demo" class="carousel slide" data-bs-ride="carousel"></div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/client-1.png" class="d-block" style="height:30px;float:left;margin-top:30px;">
+
+                    <img src="./images/client-2.png" class="d-block"
+                        style="margin-left:100px;height:30px;float:left;margin-top:30px;">
+
+                    <img src="./images/client-3.png" alt="New York" class="d-block"
+                        style="height:30px;float:left;margin-left:100px;margin-top:30px;">
+
+
+                    <img src="./images/client-4.png" alt="New York" class="d-block"
+                        style="height:30px;float:left;margin-left:100px;margin-top:30px;">
+
+                    <img src="./images/client-5.png" alt="New York" class="d-block"
+                        style="margin-left:100px;height:30px;float:left;margin-top:30px;">
+
+                    <img src="./images/client-6.png" alt="New York" class="d-block"
+                        style="margin-left:100px;height:30px;float:left;margin-top:30px;">
+
+                    <img src="./images/client-7.png" alt="New York" class="d-block"
+                        style="margin-left:100px;height:30px;float:left;margin-top:30px;">
+
+                    <img src="./images/client-8.png" alt="New York" class="d-block"
+                        style="margin-left:100px;height:30px;float:left;margin-top:30px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="col p-5">
+            <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;"><b>ABOUT
+                    US</b></h1>
+            <div class="col">
+                <!-- <div class="h4 pb-2 mb-4 text-danger border-bottom border-secondary" style="width:200px;position:absolute;margin-left:500px;"></div>
+                <div class="h4 pb-2 mb-4 text-danger border-bottom border-info border-2" style="width:100px;position:absolute;margin-left:550px;"></div> -->
+                <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+                <hr class="border-info border-4"
+                    style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p style="font-size:18px;margin-top:80px;margin-left:50px;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                    </p>
+                    <ul style="font-size:18px;margin-left:40px;">
+                        <li>
+                            <i class="bi bi-check2-circle"></i>
+                            <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i>
+                            <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span>
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-circle"></i>
+                            <span>
+                                Ullamco laboris nisi ut aliquip ex ea commodo</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-5">
+                    <p style="font-size:18px;margin-top:80px;margin-left:0px;">Ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <button type="button" class="btn btn-light text-info border-info"
+                        style="width:200px;height:40px;font-size:18px;">Read More -></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card container-fluid p-5">
+        <div class="row">
+            <div class="col-6">
+                <h1 style="color:rgba(4, 5, 88, 0.774);margin-left:50px;margin-top:100px;font-size:32px;">Eum ipsam
+                    laborum deleniti <b>velit pariatur architecto aut nihil</b></h1>
+                <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:20px;">Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Duis aute irure dolor in reprehenderit</p>
+
+                <div id="accordion">
+                    <div class="card bg-light" style="margin-left:50px;margin-top:20px;">
+                        <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                            <p style="color:rgba(4, 5, 88, 0.774)"><b>01 Non consectetur a erat nam at lectus urna
+                                    duis?</b></p>
+                            <a class="btn" data-bs-toggle="collapse" href="#po1">
+                                <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                            </a>
+                        </div>
+                        <div id="po1" class="collapse show" data-bs-parent="#accordion">
+                            <div class="card-body" style="font-size:18px;">
+                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
+                                non
+                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
+                                purus
+                                non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="accordion">
+                    <div class="card bg-light" style="margin-left:50px;margin-top:20px;">
+                        <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                            <p style="color:rgba(4, 5, 88, 0.774)"><b>02 Non consectetur a erat nam at lectus urna
+                                    duis?</b></p>
+                            <a class="btn" data-bs-toggle="collapse" href="#po2">
+                                <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                            </a>
+                        </div>
+                        <div id="po2" class="collapse show" data-bs-parent="#accordion">
+                            <div class="card-body" style="font-size:18px;">
+                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
+                                non
+                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
+                                purus
+                                non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="accordion">
+                    <div class="card bg-light" style="margin-left:50px;margin-top:20px;">
+                        <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                            <p style="color:rgba(4, 5, 88, 0.774)"><b>03 Non consectetur a erat nam at lectus urna
+                                    duis?</b></p>
+                            <a class="btn" data-bs-toggle="collapse" href="#po3">
+                                <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                            </a>
+                        </div>
+                        <div id="po3" class="collapse show" data-bs-parent="#accordion">
+                            <div class="card-body" style="font-size:18px;">
+                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
+                                non
+                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
+                                purus
+                                non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-5">
+                <img src="./images/why-us.png"
+                    style="height:400px;width:400px;float:left;margin-left:150px;margin-top:200px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="card bg-light container-fluid mt-5 P-5">
+        <div class="row">
+            <div class="col-6">
+                <img src="./images/skills.png" style="height:400px;width:500px;margin-top:100px;margin-left:100px;">
+            </div>
+            <div class="col-5">
+                <h1 style="font-size:32px;color:rgba(4, 5, 88, 0.774);margin-top:100px;width:600px;"><b>Voluptatem
+                        dignissimos provident quasi
+                        corporis voluptas</b></h1>
+                <p class="text-dark" style="font-size:16px;width:600px;"><i>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</i></p>
+                <div style="width:550px;">
+                    <div class="d-flex justify-content-between">
+                        <h5>HTML</h5>
+                        <h5>100%</h5>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:100%;background-color:rgba(4, 5, 88, 0.774);"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h5>CSS</h5>
+                        <h5>90%</h5>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar " style="width:90%;background-color:rgba(4, 5, 88, 0.774);"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h5>JAVASCRIPT</h5>
+                        <h5>75%</h5>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar " style="width:75%;background-color:rgba(4, 5, 88, 0.774);"></div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h5>PHOTOSHOP</h5>
+                        <h5>55%</h5>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width:55%;background-color:rgba(4, 5, 88, 0.774);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid card p-5">
+        <div class="col p-5">
+            <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;"><b>SERVICES
+                    US</b></h1>
+            <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+            <hr class="border-info border-4"
+                style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+            <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+                Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <section class="project-section">
+                <div class="boxes move-up">
+                    <div class="card p-5 float-start ms-4">
+                        <i class="fa fa-heartbeat text-info" style="font-size:36px;margin-top:30px;"></i>
+                        <h1 style="color:rgba(4, 5, 88, 0.774);font-size:18px;margin-top:10px;"><b>Lorem Ipsum</b>
+                        </h1>
+                        <p style="font-size:16px;margin-top:10px;">
+                            Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <div class="boxes move-up">
+                    <div class="card p-5 float-start ms-4">
+                        <i class="fa fa-align-justify text-info" style="font-size:36px;margin-top:30px;"></i>
+                        <h1 style="color:rgba(4, 5, 88, 0.774);font-size:18px;margin-top:10px;"><b>Sed ut
+                                perspici</b>
+                        </h1>
+                        <p style="font-size:16px;margin-top:10px;">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="project-section">
+                <div class="boxes move-up">
+                    <div class="card p-5 float-start ms-4">
+                        <i class="fa fa-calendar-o text-info" style="font-size:36px;margin-top:30px;"></i>
+                        <h1 style="color:rgba(4, 5, 88, 0.774);font-size:18px;margin-top:10px;"><b>Magni Dolores</b>
+                            </b>
+                        </h1>
+                        <p style="font-size:16px;margin-top:10px;">
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                    </div>
+                </div>
+            </section>
+            <section class="project-section">
+                <div class="boxes move-up">
+                    <div class="card p-5 float-start ms-4">
+                        <i class="fa fa-volume-up text-info" style="font-size:36px;margin-top:30px;"></i>
+                        <h1 style="color:rgba(4, 5, 88, 0.774);font-size:18px;margin-top:10px;"><b>
+                                Nemo Enim
+                            </b>
+                        </h1>
+                        <p style="font-size:16px;margin-top:10px;">
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-8">
+                <div class="i1">
+                    <h1 style="font-size:36px;color:white;margin-left:200px;margin-top:200px;"><b>Call To Action</b>
+                    </h1>
+                    <p style="font-size:18px;color:white;margin-left:200px;width:700px;">Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                        laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-dark border-light"
+                    style="background-color:transparent;width:200px;height:50px;font-size:20px;border-radius:25px;margin-top:230px;margin-left:50px;">Call
+                    to Action</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div class="col p-5">
+            <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;"><b>PORTFOLIO
+                    US</b></h1>
+            <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+            <hr class="border-info border-4"
+                style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+            <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+                Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <div style="margin-left:500px;margin-top:50px;">
+                <h3 class="float-start ms-5">All</h3>
+                <h3 class="float-start ms-5">App</h3>
+                <h3 class="float-start ms-5">Card</h3>
+                <h3 class="float-start ms-5">Web</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 ms-4 me-5">
+                <div class="border float-start">
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-1.jpg" style="height:350px;width:350px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">App 1</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-6.jpg" style="height:500px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Branding 2</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ms-4 me-5">
+                <div class="border float-start">
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-2.jpg" style="height:250px;width:350px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Product 1</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-5.jpg" style="height:500px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Product 2</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-9.jpg" style="height:250px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Branding 3</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 ms-5 me-5">
+                <div class="border float-start">
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-3.jpg" style="height:230px;width:350px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Branding 1</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-4.jpg" style="height:230px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">App 2</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-7.jpg" style="height:230px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">App 3</h3>
+                                <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="./images/masonry-portfolio-8.jpg" style="height:230px;width:350px;margin-top:20px;">
+                        <div class="overlay">
+                            <div class="overlay-content">
+                                <h3 style="color:rgba(4, 5, 88, 0.774)">Product 3<h3>
+                                        <p style="color:grey">Lorem ipsum, dolor sit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="">
+            <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;"><b>TEAM
+                    US</b></h1>
+            <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+            <hr class="border-info border-4"
+                style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+            <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+                Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <section class="project-section">
+                    <div class="boxes move-up">
+                        <div class="card mt-4 p-4">
+                            <div class="row ">
+                                <div class="col-4 ">
+                                    <img class="card-img-top" src="./images/team-1.jpg"
+                                        style="height:150px;width:150px;border-radius:75px;">
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="color:rgba(4, 5, 88, 0.774);font-size:20px;">
+                                            <b>Walter
+                                                White</b>
+                                        </h4>
+                                        <p style="font-size:16px;">Chief Executive Officer</p>
+                                        <hr class="border-secondary" style="width:50px;">
+                                        <p class="card-text" style="font-size:14px;width:250px;">Explicabo
+                                            voluptatem
+                                            mollitia et repellat qui dolorum quasi</p>
+                                        <div class=" d-flex justify-content-start">
+                                            <div>
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-xing p-2 ms-1"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-facebook ms-2 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-instagram ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-linkedin-square ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col">
+                <section class="project-section">
+                    <div class="boxes move-up">
+                        <div class="card mt-4 p-4">
+                            <div class="row ">
+                                <div class="col-4 ">
+                                    <img class="card-img-top" src="./images/team-2 (1).jpg"
+                                        style="height:150px;width:150px;border-radius:75px;">
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="color:rgba(4, 5, 88, 0.774);font-size:20px;">
+                                            <b>Sarah
+                                                Jhonson</b>
+                                        </h4>
+                                        <p style="font-size:16px;">Product Manager</p>
+                                        <hr class="border-secondary" style="width:50px;">
+                                        <p class="card-text" style="font-size:14px;width:250px;">Aut maiores
+                                            voluptates amet et quis praesentium qui senda para</p>
+                                        <div class=" d-flex justify-content-start">
+                                            <div>
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-xing p-2 ms-1"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-facebook ms-2 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-instagram ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-linkedin-square ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <section class="project-section">
+                    <div class="boxes move-up">
+                        <div class="card mt-4 p-4">
+                            <div class="row ">
+                                <div class="col-4 ">
+                                    <img class="card-img-top" src="./images/team-3.jpg"
+                                        style="height:150px;width:150px;border-radius:75px;">
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="color:rgba(4, 5, 88, 0.774);font-size:20px;">
+                                            <b>William Anderson</b>
+                                        </h4>
+                                        <p style="font-size:16px;">CTO</p>
+                                        <hr class="border-secondary" style="width:50px;">
+                                        <p class="card-text" style="font-size:14px;width:250px;">Quisquam
+                                            facilis
+                                            cum
+                                            velit laborum corrupti fuga rerum quia</p>
+                                        <div class=" d-flex justify-content-start">
+                                            <div>
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-xing p-2 ms-1"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-facebook ms-2 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-instagram ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-linkedin-square ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col">
+                <section class="project-section">
+                    <div class="boxes move-up">
+                        <div class="card mt-4 p-4">
+                            <div class="row ">
+                                <div class="col-4 ">
+                                    <img class="card-img-top" src="./images/team-4.jpg"
+                                        style="height:150px;width:150px;border-radius:75px;">
+                                </div>
+                                <div class="col-6 ">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="color:rgba(4, 5, 88, 0.774);font-size:20px;">
+                                            <b>Amanda Jepson</b>
+                                        </h4>
+                                        <p style="font-size:16px;">Accountant</p>
+                                        <hr class="border-secondary" style="width:50px;">
+                                        <p class="card-text" style="font-size:14px;width:250px;">Dolorum tempora
+                                            officiis odit laborum officiis et et accusamus</p>
+                                        <div class=" d-flex justify-content-start">
+                                            <div>
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-xing p-2 ms-1"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-facebook ms-2 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-instagram ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <div class="rounded-circle border"
+                                                    style="height:40px;width:40px;background-color:lightgray">
+                                                    <i class="fa fa-linkedin-square ms-1 p-2"
+                                                        style="font-size:25px;color:grey;"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="col p-5">
+            <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;"><b>PRICES
+                    US</b></h1>
+            <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+            <hr class="border-info border-4"
+                style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+            <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+                Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="card p-5">
+                <h2 style="text-align: center;color:rgba(4, 5, 88, 0.774)"><b>Free Plan</b></h2>
+                <p class="text-info"><span style="font-size:45px"><sup>$</sup></span> <span
+                        style="font-size:55px;">0</span><span style="color:grey;font-size:21px;"><sub> / month
+                        </sub></span></p>
+                <div class="container ">
+                    <ul class="list-unstyled">
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;">
+                                Quam adipiscing vitae proin</span>
+                        </li>
+                        <li style="margin-top:10px;"> <i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nec feugiat nisl pretium</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nulla at volutpat diam uteera</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-close text-secondary" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;text-decoration:line-through">
+                                Pharetra massa massa ultricies</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-close text-secondary" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;text-decoration:line-through">
+                                Massa ultricies mi quis hendrerit</span>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn btn-outline-info"
+                    style="height:40px;font-size:15px;border-radius:20px;width:150px;">Buy now</button>
+            </div>
+            <div class="card p-5 border-top">
+                <h2 style="text-align: center;color:rgba(4, 5, 88, 0.774)"><b>Business Plan</b></h2>
+                <p class="text-info"><span style="font-size:45px"><sup>$</sup></span> <span
+                        style="font-size:55px;">0</span><span style="color:grey;font-size:25px;"><sub> / month
+                        </sub></span></p>
+                <div class="container ">
+                    <ul class="list-unstyled">
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;">
+                                Quam adipiscing vitae proin</span>
+                        </li>
+                        <li style="margin-top:10px;"> <i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nec feugiat nisl pretium</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nulla at volutpat diam uteera</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Pharetra massa massa ultricies</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Massa ultricies mi quis hendrerit</span>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn btn-info"
+                    style="height:40px;font-size:15px;border-radius:20px;width:150px;">Buy now</button>
+            </div>
+            <div class="card p-5">
+                <h2 style="text-align: center;color:rgba(4, 5, 88, 0.774)"><b>Developer Plan</b></h2>
+                <p class="text-info"><span style="font-size:45px"><sup>$</sup></span> <span
+                        style="font-size:55px;">0</span><span style="color:grey;font-size:25px;"><sub> / month
+                        </sub></span></p>
+                <div class="container ">
+                    <ul class="list-unstyled">
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;">
+                                Quam adipiscing vitae proin</span>
+                        </li>
+                        <li style="margin-top:10px;"> <i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nec feugiat nisl pretium</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Nulla at volutpat diam uteera</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Pharetra massa massa ultricies</span>
+                        </li>
+                        <li style="margin-top:10px;"><i class="fas fa-check text-success" style="font-size:16px;"></i>
+                            <span style="color:grey;font-size:18px;margin-top:10px;">
+                                Massa ultricies mi quis hendrerit</span>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn btn-outline-info"
+                    style="height:40px;font-size:15px;border-radius:20px;width:150px;">Buy now</button>
+            </div>
+        </div>
+    </div>
+    <div class="conatiner-fluid">
+        <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;">
+            <b>TESTIMONIALS
+            </b>
+        </h1>
+        <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+        <hr class="border-info border-4"
+            style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+        <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+
+
+        <!-- Carousel -->
+        <div id="dem" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active mt-4">
+                    <img src="./images/testimonials-1.jpg " alt="Los Angeles" class="d-block;"
+                        style="height:200px;width:200px;border-radius:100px;border:2px none black;margin-left:580px;">
+                    <div class="container-fluid mt-3" style="width:900px;">
+                        <h4 style="text-align: center;font-size:20px;color:rgba(4, 5, 88, 0.774);">Saul Goodman</h4>
+                        <p class="text-secondary text-center" style="font-size:14px;">Ceo & Founder</p>
+                        <div>
+                            <i class="fa fa-star text-warning float-start"
+                                style="font-size:24px;margin-left:390px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning " style="font-size:24px;"></i>
+                        </div>
+                        <p style="text-align:center;font-size:16px;"> <i>Proin iaculis purus consequat sem cure
+                                digni
+                                ssim
+                                donec porttitora
+                                entum suscipit rhoncus. Accusantium quam, ultricies/</i></p>
+                        <p style="text-align:center;font-size:16px;"><i>eget id, aliquam eget nibh et. Maecen
+                                aliquam,
+                                risus
+                                at semper.
+                            </i>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item mt-5">
+                    <img src="./images/testimonials-2.jpg " alt="Los Angeles" class="d-block;"
+                        style="height:200px;width:200px;border-radius:100px;border:2px none black;margin-left:580px;">
+                    <div class="container  mt-3" style="width:900px;">
+                        <h4 style="text-align: center;font-size:18px;color:rgba(4, 5, 88, 0.774);">Sara Wilson</h4>
+                        <p class="text-secondary text-center" style="font-size:14px;">Designer</p>
+                        <div>
+                            <i class="fa fa-star text-warning float-start"
+                                style="font-size:24px;margin-left:380px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning " style="font-size:24px;"></i>
+                        </div>
+                        <p style="text-align:center;font-size:16px;"> <i>
+                                Export tempor illum tamen malis malis eram quae irure esse labore quem
+                                cillum quid cillum
+                                eram malis quorum velit fore
+                            </i></p>
+                        <p style="text-align:center;font-size:16px;"><i> eram velit sunt aliqua noster fugiat
+                                irure amet legam anim culpa.
+                            </i>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item mt-5">
+                    <img src="./images/testimonials-3.jpg " alt="Los Angeles" class="d-block;"
+                        style="height:200px;width:200px;border-radius:100px;border:2px none black;margin-left:580px;">
+                    <div class="container  mt-3" style="width:900px;">
+                        <h4 style="text-align: center;font-size:20px;">
+                            Jena Karlis
+                        </h4>
+                        <p class="text-secondary text-center" style="font-size:14px;color:rgba(4, 5, 88, 0.774)">
+                            Store
+                            Owner</p>
+                        <div>
+                            <i class="fa fa-star text-warning float-start"
+                                style="font-size:24px;margin-left:380px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning " style="font-size:24px;"></i>
+                        </div>
+                        <p style="text-align:center;font-size:16px;"> <i>Enim nisi quem export duis labore cillum
+                                quae
+                                magna enim sint
+                                quorum nulla quem veniam duis minim tempor labore </i></p>
+                        <p style="text-align:center;font-size:16px;"><i>quem eram duis noster aute amet eram fore
+                                quis
+                                sint
+                                minim.
+                            </i>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item mt-5">
+                    <img src="./images/testimonials-4.jpg " alt="Los Angeles" class="d-block;"
+                        style="height:200px;width:200px;border-radius:100px;border:2px none black;margin-left:580px;">
+                    <div class="container  mt-3" style="width:900px;">
+                        <h4 style="text-align: center;color:rgba(4, 5, 88, 0.774);font-size:20px;">
+                            Matt Brandon
+                        </h4>
+                        <p class="text-secondary text-center" style="font-size:14px;"> Freelancer</p>
+                        <div>
+                            <i class="fa fa-star text-warning float-start"
+                                style="font-size:24px;margin-left:380px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning " style="font-size:24px;"></i>
+                        </div>
+                        <p style="text-align:center;font-size:16px;"> <i>Fugiat enim eram quae cillum dolore dolor
+                                amet
+                                nulla culpa multos
+                                export minim fugiat minim velit minim dolor enim</i></p>
+                        <p style="text-align:center;font-size:16px;"><i>duis veniam ipsum anim magna sunt elit fore
+                                quem
+                                dolore labore illum
+                                veniam.
+                            </i>.</p>
+                    </div>
+                </div>
+                <div class="carousel-item mt-5">
+                    <img src="./images/testimonials-5.jpg " alt="Los Angeles" class="d-block;"
+                        style="height:200px;width:200px;border-radius:100px;border:2px none black;margin-left:580px;">
+                    <div class="container  mt-3" style="width:900px;">
+                        <h4 style="text-align: center;color:rgba(4, 5, 88, 0.774);font-size:20px;">John Larson</h4>
+                        <p class="text-secondary text-center" style="font-size:14px;"> Entrepreneur</p>
+                        <div>
+                            <i class="fa fa-star text-warning float-start"
+                                style="font-size:24px;margin-left:380px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning float-start" style="font-size:24px;"></i>
+                            <i class="fa fa-star text-warning " style="font-size:24px;"></i>
+                        </div>
+                        <p style="text-align:center;font-size:16px;"> <i>
+                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
+                                noster veniam
+                                enim
+                                culpa labore duis
+                            </i></p>
+                        <p style="text-align:center;font-size:16px;"><i> sunt culpa nulla illum cillum fugiat legam
+                                esse
+                                veniam culpa fore
+                                nisi cillum
+                                quid.
+                            </i>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev " type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button" data-bs-target="#dem" data-bs-slide-to="0" class="active btn-secondary"
+                style="height:20px;width:20px;border-radius:10px;border:2px none black;margin-left:630px;"></button>
+            <button type="button" data-bs-target="#dem" data-bs-slide-to="1"
+                style="height:20px;width:20px;border-radius:10px;border:2px none black;"></button>
+            <button type="button" data-bs-target="#dem" data-bs-slide-to="2"
+                style="height:20px;width:20px;border-radius:10px;border:2px none black;"></button>
+            <button type="button" data-bs-target="#dem" data-bs-slide-to="3"
+                style="height:20px;width:20px;border-radius:10px;border:2px none black;"></button>
+            <button type="button" data-bs-target="#dem" data-bs-slide-to="4"
+                style="height:20px;width:20px;border-radius:10px;border:2px none black;"></button>
+        </div>
+    </div>
+    <div class="conatiner mt-5">
+        <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;">
+            <b>FREQUENTLY ASKED QUESTIONS
+            </b>
+        </h1>
+        <hr class="border-secondary" style="width:200px;position:absolute;margin-left:500px;">
+        <hr class="border-info border-4"
+            style="width:100px; position:absolute; left: 45%; transform: translateX(-50%);">
+        <p class="text-dark" style="font-size:16px;margin-left:150px;margin-top:35px;text-align:center;width:1000px;">
+            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
+            sit
+            in iste officiis commodi quidem hic quas.</p>
+        <div id="accordion col-7">
+            <div class="card bg-light" style="margin-left:270px;margin-top:20px;width:800px;">
+                <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                    <p style="color:rgba(4, 5, 88, 0.774);margin-left:10px;"><b><i class="fa fa-toggle-down "
+                                style="font-size:24px;padding-bottom:10px;"></i> Non consectetur a erat nam at
+                            lectus
+                            urna
+                            duis?</b></p>
+                    <a class="btn" data-bs-toggle="collapse" href="#q1">
+                        <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                    </a>
+                </div>
+                <div id="q1" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body" style="font-size:18px;">
+                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
+                        non
+                        curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
+                        purus
+                        non.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="accordion col-7">
+            <div class="card bg-light" style="margin-left:270px;margin-top:20px;width:800px;">
+                <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                    <p style="color:rgba(4, 5, 88, 0.774);margin-left:10px;"><b><i class="fa fa-toggle-down "
+                                style="font-size:24px;padding-bottom:10px;"></i>Feugiat scelerisque varius morbi
+                            enim
+                            nunc
+                            faucibus a pellentesque?
+                        </b></p>
+                    <a class="btn" data-bs-toggle="collapse" href="#q2">
+                        <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                    </a>
+                </div>
+                <div id="q2" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body" style="font-size:18px;">
+                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
+                        velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
+                        donec
+                        pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
+                        turpis massa tincidunt dui.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="accordion col-7">
+            <div class="card bg-light" style="margin-left:270px;margin-top:20px;width:800px;">
+                <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                    <p style="color:rgba(4, 5, 88, 0.774)"><b><i class="fa fa-toggle-down "
+                                style="font-size:24px;padding-bottom:10px;margin-left:10px;"></i>Ac odio tempor orci
+                            dapibus. Aliquam
+                            eleifend mi in nulla?
+                        </b></p>
+                    <a class="btn" data-bs-toggle="collapse" href="#q4">
+                        <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                    </a>
+                </div>
+                <div id="q4" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body" style="font-size:18px;">
+                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
+                        laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium.
+                        Est
+                        pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa
+                        tincidunt
+                        dui.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordion col-7">
+            <div class="card bg-light" style="margin-left:270px;margin-top:20px;width:800px;">
+                <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                    <p style="color:rgba(4, 5, 88, 0.774);margin-left:10px;"><b><i class="fa fa-toggle-down "
+                                style="font-size:24px;padding-bottom:10px;"></i>Tempus quam pellentesque nec nam
+                            aliquam
+                            sem et tortor
+                            consequat?</b></p>
+                    <a class="btn" data-bs-toggle="collapse" href="#q3">
+                        <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                    </a>
+                </div>
+                <div id="q3" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body" style="font-size:18px;">
+                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
+                        pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
+                        Rutrum
+                        tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
+                        molestie at elementum eu facilisis sed odio morbi quis
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordion col-7">
+            <div class="card bg-light" style="margin-left:270px;margin-top:20px;width:800px;">
+                <div class="card-header bg-light d-flex justify-content-between" style="font-size:18px;">
+                    <p style="color:rgba(4, 5, 88, 0.774);margin-left:10px;"><b><i class="fa fa-toggle-down "
+                                style="font-size:24px;padding-bottom:10px;"></i>Dolor sit amet consectetur
+                            adipiscing
+                            elit
+                            pellentesque?</b></p>
+                    <a class="btn" data-bs-toggle="collapse" href="#q5">
+                        <i class="fa fa-angle-right" style="float:right;font-size:24px;"></i>
+                    </a>
+                </div>
+                <div id="q5" class="collapse show" data-bs-parent="#accordion">
+                    <div class="card-body" style="font-size:18px;">
+                        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
+                        ante
+                        in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
+                        bibendum
+                        est. Purus gravida quis blandit turpis cursus in
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-5">
+        <div class="row">
+            <div>
+                <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:35px;margin-top:40px;">
+                    <b>CONTACT</b>
+                </h1>
+                <hr class="border-secondary" style="width:200px;position:absolute;margin-left:570px;">
+                <hr class="border-info border-4"
+                    style="width:100px; position:absolute; left: 50%; transform: translateX(-50%);">
+                <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+                    Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            </div>
+        </div>
+        <div class="d-flex ms-5" style="margin-left:100px;">
+            <div class="border-top border-info  ms-5 p-3 shadow-lg">
+                <div class="d-flex justify-content-between ms-4">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="rounded-circle border "
+                                style="height:50px;width:50px;background-color:lightblue;">
+                                <i class="fa fa-map-marker" style="font-size:30px;padding:10px;margin-left:5px;"></i>
+                            </div>
+                        </div>
+                        <div style="margin-left:15px;">
+                            <p style="color:rgba(4, 5, 88, 0.774);font-size:18px;"><b>Address</b></p>
+                            <p style="font-size:14px;">A108 Adam Street, New York, NY 535022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between ms-4 mt-4">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="rounded-circle border "
+                                style="height:50px;width:50px;background-color:lightblue;">
+                                <i class="fa fa-phone" style="font-size:30px;padding:10px;margin-left:2px;"></i>
+                            </div>
+                        </div>
+                        <div style="margin-left:15px;">
+                            <p style="color:rgba(4, 5, 88, 0.774);font-size:18px;"><b>Call us</b></p>
+                            <p style="font-size:14px;">+1 5589 55488 55</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between ms-4 mt-4">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="rounded-circle border "
+                                style="height:50px;width:50px;background-color:lightblue;">
+                                <i class="fa fa-envelope" style="font-size:30px;padding:10px;margin-left:0px;"></i>
+                            </div>
+                        </div>
+                        <div style="margin-left:15px;">
+                            <p style="color:rgba(4, 5, 88, 0.774);font-size:18px;"><b>Email us</b></p>
+                            <p style="font-size:14px;">info@example.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d62663.48292213167!2d76.97858559999999!3d11.0034944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1719500523521!5m2!1sen!2sin"
+                        width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="border-top border-info p-3 shadow-lg ms-5" style="width:800px;">
+                <div class="row">
+                    <div class=" col-5 mb-5 mt-3 ">
+                        <p style="font-size:18px;">Your Name</p>
+                        <input type="text" class="form-control" id="email" placeholder="" name="text"
+                            style="width:110%;height:80%;">
+                    </div>
+
+                    <div class=" col-5 mb-5 mt-3 " style="margin-left:15px;">
+                        <p style="font-size:18px;">Your email</p>
+                        <input type="email" class="form-control" id="email" placeholder="" name="email"
+                            style="height:80%;width:110%;">
+                    </div>
+                </div>
+                <div class="mt-3 mb-3 ms-5">
+                    <p style="font-size:18px;">Subject</p>
+                    <input type="text" class="form-control" id="email" placeholder="" name="text"
+                        style="height:50px;;width:97%;">
+                </div>
+                <div class="mt-3 ms-5">
+                    <p style="font-size:18px">Message</p>
+                    <textarea class="form-control" rows="5" id="comment" name="text"
+                        style="height:150px;width:97%;"></textarea>
+                </div>
+                <button type="button" class="btn btn-info"
+                    style="border:2px none black;margin-left:250px;margin-top:30px;height:50px;width:200px;border-radius:50px;font-size:18px;">Send
+                    Message</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt-5 p-5" style="background-color:rgba(231, 226, 226, 0.678);height:300px;">
+        <h1 style="text-align:center;color:rgba(4, 5, 88, 0.774);font-size:25px;margin-top:40px;">
+            <b>Join Our Newsletter
+            </b>
+        </h1>
+        <p class="text-dark" style="font-size:16px;margin-left:50px;margin-top:35px;text-align:center;">
+            Subscribe to our newsletter and receive the latest news about our products and services!</p>
+        <div>
+            <input type="email" class="form-control" id="email" placeholder="" name="email"
+                style="height:50px;width:50%;border:2px none black;border-radius:40px;position: absolute;margin-left:300px;margin-top:20px;">
+            <button type="button" class="btn btn-primary"
+                style="height:50px;width:130px;margin-top:20px;font-size:16px;border-radius:40px;border:2px none black;position:absolute;margin-left:850px;">Subscribe</button>
+        </div>
+    </div>
+    <div class="container-fluid  bg-light">
+        <div class="d-flex justify-content-between">
+            <div class="mt-3" style="margin-left:100px;">
+                <p class="text-left" style="font-size:18px;color:rgba(4, 5, 88, 0.774)"><b>ARSHA</b></p>
+                <p class="text-left" style="font-size:16px;">A108 Adam Street</p>
+                <p class="text-left" style="font-size:16px;">New York, NY 535022</p>
+                <p class="text-left" style="font-size:16px;"><b>Phone:</b> +1 5589 55488 55</p>
+                <p class="text-left" style="font-size:16px;"><b>Email: </b> info@example.com</p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class=" mt-3">
+                    <p class="text-left" style="font-size:16px;color:rgba(4, 5, 88, 0.774)"><b>Useful Links</b>
+                        </bUseful>
+                    </p>
+                    <ul class="list-unstyled mt-2" style="font-size:17px;">
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Home</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> About Us</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Services</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Terms of Services</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class=" mt-3">
+                    <p class="text-left" style="font-size:16px;color:rgba(4, 5, 88, 0.774)"><b>Our Services</b>
+                        </bUseful>
+                    </p>
+                    <ul class="list-unstyled mt-2" style="font-size:17px;">
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Web Design</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Web Development</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Product Management</li>
+                        <li><i class="fas fa-angle-right text-info" style="font-size:16px;"></i> Marketing</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="mt-3">
+                    <p class="text-left" style="font-size:16px;color:rgba(4, 5, 88, 0.774)"><b>Follow Us</b></bUseful>
+                    </p>
+                    <p style="font-size:16px;width:350px;">Cras fermentum odio eu feugiat lide par naso tierra videa magna derita
+                        valies</p>
+                
+                    <div class="ms-2 float-start">
+                        <div class="rounded-circle border" style="height:40px;width:40px;border:2px solid grey">
+                            <i class="fa fa-xing p-2 ms-1" style="font-size:25px;color:grey;"></i>
+                        </div>
+                    </div>
+                    <div class="ms-2 float-start">
+                        <div class="rounded-circle border" style="height:40px;width:40px;border:2px solid grey">
+                            <i class="fa fa-facebook ms-2 p-2" style="font-size:25px;color:grey;"></i>
+                        </div>
+                    </div>
+                    <div class="ms-2 float-start">
+                        <div class="rounded-circle border" style="height:40px;width:40px;border:2px solid grey">
+                            <i class="fa fa-instagram ms-1 p-2" style="font-size:25px;color:grey;"></i>
+                        </div>
+                    </div>
+                    <div class="ms-2 float-start">
+                        <div class="rounded-circle border" style="height:40px;width:40px;border:2px solid grey">
+                            <i class="fa fa-linkedin-square ms-1 p-2" style="font-size:25px;color:grey;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
